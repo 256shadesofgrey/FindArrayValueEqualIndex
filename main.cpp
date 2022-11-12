@@ -29,4 +29,12 @@ int main(int argc, char *argv[]){
   }
 
   ta->printArray();
+
+  int32_t result = BinarySearch::search(ta->getArray(), ta->len());
+
+  if(result >= 0){
+    cout<<"Value and its index equal at: "<<result<<endl;
+  }else{
+    cout<<"There is no value that equals its index."<<endl;
+  }
 }
