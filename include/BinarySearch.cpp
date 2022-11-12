@@ -3,7 +3,7 @@
 int32_t BinarySearch::search(const int32_t *array, uint32_t len)
 {
   // Slope of value graph fv is mv>=1, while the slope of the index graph fi is mi=1.
-  // That means if fv starts above 0 or ends before len-1, there cannot possibly
+  // That means if fv starts above 0 or ends below len-1, there cannot possibly
   // be an intersection that we're looking for, so we can skip the search.
   if(array[0] > 0){
     return -1;
@@ -21,6 +21,9 @@ int32_t BinarySearch::search(const int32_t *array, uint32_t len)
   // we will not have saved any operations by doing it this way, but in cases
   // when it evaluates to true, we will have saved one, so it's an average case
   // improvement.
+  // We could have used an additional variable to avoid this operation, but
+  // doing so would have used more memory and would still have resulted in an
+  // allocation operation, so this is still better.
   ++len;
 
   uint32_t start = 0;
