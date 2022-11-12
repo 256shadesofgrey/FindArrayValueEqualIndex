@@ -40,6 +40,16 @@ TestArray::TestArray(uint32_t len, char *array[])
   convertCharArrayToIntArray(len_, array, array_);
 }
 
+TestArray::TestArray(std::vector<int32_t> values)
+  :startValue_{0}, minStep_{0}, maxStep_{0}, len_{(uint32_t)values.size()}
+{
+  array_ = new int32_t[len_];
+  for(uint32_t i = 0; i < len_; i++){
+    array_[i] = values[i];
+  }
+}
+
+
 TestArray::~TestArray()
 {
   if(array_){

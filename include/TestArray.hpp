@@ -31,6 +31,7 @@ public:
   TestArray();
   TestArray(uint32_t len, int32_t startValue, int32_t minStep, int32_t maxStep);
   TestArray(uint32_t len, char *array[]);
+  TestArray(std::vector<std::int32_t> values);
 
   ~TestArray();
 
